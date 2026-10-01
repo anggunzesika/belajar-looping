@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    /* Background dari gambar kamu */
+    background-image:
+        linear-gradient(
+            rgba(61, 32, 18, 0.25),
+            rgba(61, 32, 18, 0.25)
+        ),
+        url("Blanka.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    text-align: center;
+
+    padding: 40px 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 248, 239, 0.92);
+
+    border: 3px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 20px 50px rgba(42, 20, 10, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+
+    backdrop-filter: blur(5px);
+
+    animation: muncul 1s ease;
+}
+
+
+/* =========================
+   TEDDY
+========================= */
+
+.bear {
+    font-size: 70px;
+
+    display: inline-block;
+
+    animation:
+        goyang 2s infinite ease-in-out,
+        melayang 3s infinite ease-in-out;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+h1 {
+    color: #5a301d;
+
+    font-size: 42px;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        2px 2px 0px white;
+
+    animation: judul 2s infinite ease-in-out;
+}
+
+.subtitle {
+    color: #8b5e3c;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   GARIS LUCU
+========================= */
+
+.cute-line {
+    color: #b48765;
+
+    font-size: 18px;
+
+    margin: 15px 0 25px;
+}
+
+
+/* =========================
+   HASIL
+========================= */
+
+.hasil-box {
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 2px dashed #c49a78;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    min-height: 180px;
+
+    box-shadow:
+        0 8px 20px rgba(92, 49, 25, 0.12);
+}
+
+.hasil-box h2 {
+    color: #684027;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+}
+
+#output {
+    color: #70482e;
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    min-height: 80px;
+}
+
+
+/* =========================
+   HASIL LOOPING
+========================= */
+
+.loop-text {
+    background: #fffaf5;
+
+    border-radius: 12px;
+
+    padding: 8px 12px;
+
+    margin: 7px 0;
+
+    border-left: 5px solid #a87550;
+
+    animation: masuk 0.5s ease both;
+
+    box-shadow:
+        0 3px 8px rgba(75, 40, 20, 0.08);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 14px 25px;
+
+    margin: 5px;
+
+    border-radius: 50px;
+
+    background: #70452c;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #4b2b1b,
+        0 10px 20px rgba(71, 38, 20, 0.25);
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    background: #875637;
+}
+
+button:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 3px 0 #4b2b1b;
+}
+
+
+/* Tombol reset */
+
+button.reset {
+    background: #c59b7b;
+
+    box-shadow:
+        0 6px 0 #9b7254;
+}
+
+button.reset:hover {
+    background: #b78969;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 25px;
+
+    color: #9b765a;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   DEKORASI MELAYANG
+========================= */
+
+.floating {
+    position: fixed;
+
+    font-size: 35px;
+
+    opacity: 0.8;
+
+    z-index: 1;
+
+    animation: melayang 4s infinite ease-in-out;
+}
+
+.floating:nth-child(1) {
+    top: 10%;
+    left: 8%;
+
+    animation-delay: 0s;
+}
+
+.floating:nth-child(2) {
+    top: 20%;
+    right: 10%;
+
+    animation-delay: 1s;
+}
+
+.floating:nth-child(3) {
+    bottom: 15%;
+    left: 12%;
+
+    animation-delay: 2s;
+}
+
+.floating:nth-child(4) {
+    bottom: 10%;
+    right: 8%;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================
+   ANIMASI
+========================= */
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes masuk {
+
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes goyang {
+
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+
+@keyframes melayang {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+@keyframes judul {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .bear {
+        font-size: 55px;
+    }
+
+    .floating {
+        font-size: 25px;
+    }
+}
